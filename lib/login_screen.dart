@@ -3,6 +3,7 @@ import 'package:spotify_ui/components/button.dart';
 import 'package:spotify_ui/components/logo.dart';
 import 'package:spotify_ui/components/name_text.dart';
 import 'package:spotify_ui/components/text_field.dart';
+import 'package:spotify_ui/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -40,13 +41,19 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 15,
             ),
             const Text('Recovery Password'),
-            // ignore: prefer_const_constructors
-            Button(),
-            // ignore: prefer_const_literals_to_create_immutables
-            Row(children: <Widget>[
-              const Expanded(child: Divider(color: Colors.white)),
-              const Text("OR"),
-              const Expanded(child: Divider(color: Colors.white)),
+            Button(
+              title: 'Login',
+              onPress: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                );
+              },
+            ),
+            Row(children: const <Widget>[
+              Expanded(child: Divider(color: Colors.white)),
+              Text("OR"),
+              Expanded(child: Divider(color: Colors.white)),
             ]),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -55,7 +62,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 Icon(Icons.apple),
               ],
             ),
-
             const Text('not a member ? register now')
           ],
         ),

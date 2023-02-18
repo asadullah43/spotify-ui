@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_ui/components/logo.dart';
+import 'package:spotify_ui/login_screen.dart';
+import 'package:spotify_ui/signup_screen.dart';
 
 class SelectSign extends StatelessWidget {
   const SelectSign({Key? key}) : super(key: key);
@@ -30,21 +32,39 @@ class SelectSign extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  height: 60,
-                  width: 100,
-                  decoration: BoxDecoration(
-                      color: const Color(0xff42C83C),
-                      borderRadius: BorderRadius.circular(20)),
-                  child: const Center(child: Text('Register')),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SignUpScreen()),
+                    );
+                  },
+                  child: Container(
+                    height: 60,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        color: const Color(0xff42C83C),
+                        borderRadius: BorderRadius.circular(20)),
+                    child: const Center(child: Text('Register')),
+                  ),
                 ),
-                Container(
-                  height: 60,
-                  width: 100,
-                  decoration: BoxDecoration(
-                      color: const Color(0xff42C83C),
-                      borderRadius: BorderRadius.circular(20)),
-                  child: const Center(child: Text('Sign in')),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginScreen()),
+                    );
+                  },
+                  child: Container(
+                    height: 60,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        color: const Color(0xff42C83C),
+                        borderRadius: BorderRadius.circular(20)),
+                    child: const Center(child: Text('Sign in')),
+                  ),
                 ),
               ],
             ),
